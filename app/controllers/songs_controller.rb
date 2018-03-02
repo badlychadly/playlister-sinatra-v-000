@@ -46,6 +46,12 @@ class SongsController < ApplicationController
     @song.save
     flash[:message] = "Successfully updated song."
     redirect to("/songs/#{@song.slug}")
+
+
+    @song = Song.find_by_slug(params[:slug])
+    @song.update(params[:Name])
+    @song.artist = Artist.find_or_create_by(name: params["Artist Name"])
+    @song.save
   end
 
 
