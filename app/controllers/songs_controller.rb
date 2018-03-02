@@ -19,7 +19,7 @@ class SongsController < ApplicationController
     #   genre = Genre.find_by(id: id)
     #   @song.song_genres.build(genre: genre)
     # end
-    # 
+    #
     # if !params["Artist Name"].empty?
     #   artist = Artist.find_or_create_by(name: params["Artist Name"])
     #   @song.artist = artist
@@ -32,7 +32,7 @@ class SongsController < ApplicationController
     @song.genre_ids = params[:genres]
     @song.save
 
-    
+
     flash[:message] = "Successfully created song."
     redirect to("/songs/#{@song.slug}")
   end
